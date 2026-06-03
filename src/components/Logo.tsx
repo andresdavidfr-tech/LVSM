@@ -77,7 +77,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = 40, variant =
           
           {/* EST 2021 curved text path placeholder (simplified) */}
           <path id="curve" d="M30 80 Q50 90 70 80" fill="transparent" />
-          <text width="100" fill={colors.gold} style={{ fontSize: '6px', letterSpacing: '0.1em' }}>
+          <text fill={colors.gold} style={{ fontSize: '6px', letterSpacing: '0.1em' }}>
             <textPath href="#curve" startOffset="50%" textAnchor="middle">
               EST. 2021
             </textPath>

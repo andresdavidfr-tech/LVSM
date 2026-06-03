@@ -542,7 +542,7 @@ const Footer = ({ onAdminClick }: { onAdminClick: () => void }) => {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-brand-ink/5 flex flex-col md:row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-brand-ink/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] uppercase tracking-widest opacity-40">
             © {new Date().getFullYear()} LVSM. Todos los derechos reservados.
           </p>
