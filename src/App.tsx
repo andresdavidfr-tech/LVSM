@@ -146,9 +146,10 @@ const Hero = () => {
           className="relative"
         >
           <div className="aspect-[4/5] rounded-[100px] overflow-hidden shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=1200" 
-              alt="Louis Vuitton Neverfull MM Monogram - Iconic Luxury" 
+            {/* Imagen Hero: misma cartera que el catálogo (Neverfull). Unsplash sin verificar; revisar en vivo. */}
+            <img
+              src="https://images.unsplash.com/photo-1564422170194-896b89110ef8?auto=format&fit=crop&q=80&w=1200"
+              alt="Louis Vuitton Neverfull MM Monogram - Iconic Luxury"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -282,9 +283,10 @@ const Authenticity = () => {
           <div className="order-2 md:order-1">
             <div className="relative">
               <div className="aspect-square rounded-full overflow-hidden border-[20px] border-white shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Luxury Manual Authentication" 
+                {/* Autenticidad: detalle de cartera de lujo. Unsplash sin verificar; revisar en vivo. */}
+                <img
+                  src="https://images.unsplash.com/photo-1591348122449-02525d70379b?auto=format&fit=crop&q=80&w=1000"
+                  alt="Luxury Manual Authentication"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -370,9 +372,10 @@ const AboutUs = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-2xl relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1581338834647-b0fb40704e21?auto=format&fit=crop&q=80&w=1000" 
-                alt="LVSM Founder Vision" 
+              {/* Nosotros: curaduría de lujo vintage. Unsplash sin verificar; revisar en vivo. */}
+              <img
+                src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&q=80&w=1000"
+                alt="LVSM Founder Vision"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -427,9 +430,10 @@ const Consignment = () => {
       </div>
       
       <div className="absolute top-0 right-0 w-1/3 h-full opacity-20 hidden lg:block">
-        <img 
-          src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&q=80&w=1000" 
-          alt="Luxury background" 
+        {/* Consignación: fondo de cartera de lujo. Unsplash sin verificar; revisar en vivo. */}
+        <img
+          src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&q=80&w=1000"
+          alt="Luxury background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />

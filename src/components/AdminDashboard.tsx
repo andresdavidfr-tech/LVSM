@@ -19,11 +19,14 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 // Mock Data
+// NOTA: imágenes de carteras de lujo seminuevas. Las 3 piezas compartidas con
+// el catálogo (constants.ts) usan las mismas URLs para mantener consistencia.
+// No verificadas desde el entorno de build (allowlist de red); revisar en vivo.
 const MOCK_PRODUCTS = [
-  { id: 1, brand: 'Louis Vuitton', model: 'Neverfull MM Monogram', condition: 'Inmejorable', image: 'https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=200' },
-  { id: 2, brand: 'Gucci', model: 'GG Marmont Small', condition: 'Excelente', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=200' },
-  { id: 3, brand: 'Chanel', model: 'Classic Flap Bag', condition: 'Como nueva', image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=200' },
-  { id: 4, brand: 'Prada', model: 'Galleria Saffiano', condition: 'Vintage', image: 'https://images.unsplash.com/photo-1566150905458-1bf1fd113965?auto=format&fit=crop&q=80&w=200' },
+  { id: 1, brand: 'Louis Vuitton', model: 'Neverfull MM Monogram', condition: 'Inmejorable', image: 'https://images.unsplash.com/photo-1564422170194-896b89110ef8?auto=format&fit=crop&q=80&w=200' },
+  { id: 2, brand: 'Gucci', model: 'GG Marmont Small', condition: 'Excelente', image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=200' },
+  { id: 3, brand: 'Chanel', model: 'Classic Flap Bag', condition: 'Como nueva', image: 'https://images.unsplash.com/photo-1575032617751-6ddec2089882?auto=format&fit=crop&q=80&w=200' },
+  { id: 4, brand: 'Prada', model: 'Galleria Saffiano', condition: 'Vintage', image: 'https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&q=80&w=200' },
 ];
 
 const MOCK_LEADS = [
