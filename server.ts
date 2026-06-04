@@ -3,6 +3,8 @@ import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
 import path from "path";
 import { fileURLToPath } from "url";
+import { STATIC_PRODUCTS } from "./src/data/products";
+import { STATIC_REVIEWS } from "./src/data/reviews";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -45,6 +47,15 @@ async function startServer() {
       console.error("Database error:", error);
       res.status(500).json({ error: "Error al guardar la información" });
     }
+  });
+
+  // Catálogo y reseñas (el frontend cae a datos estáticos si no hay servidor)
+  app.get("/api/products", (_req, res) => {
+    res.json(STATIC_PRODUCTS);
+  });
+
+  app.get("/api/reviews", (_req, res) => {
+    res.json(STATIC_REVIEWS);
   });
 
   // Admin route to view leads (for MVP demo purposes)
