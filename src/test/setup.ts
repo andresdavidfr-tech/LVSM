@@ -2,6 +2,11 @@ import '@testing-library/jest-dom/vitest';
 import { afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 
+// jsdom no implementa scrollTo; lo stubbeamos para la PDP.
+if (typeof window !== 'undefined') {
+  window.scrollTo = () => {};
+}
+
 // El setup corre en ambos entornos (jsdom y node), así que protegemos los
 // accesos al DOM para que los tests de servidor (node) no fallen.
 afterEach(() => {
