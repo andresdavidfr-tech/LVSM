@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AlertCircle } from 'lucide-react';
 import { SmartImage } from '../ui/SmartImage';
+import { resolveImage } from '../../lib/images';
 import type { ProductImage } from '../../data/products';
 
 // Galería para artículos usados: imagen principal grande con detalle de los
@@ -13,7 +14,7 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
     <div>
       <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4 shadow-xl">
         <SmartImage
-          src={current.src}
+          src={resolveImage(current)}
           alt={current.alt}
           priority
           wrapperClassName="w-full h-full"
@@ -37,7 +38,7 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
               i === active ? 'border-brand-accent' : 'border-transparent hover:border-brand-gold'
             }`}
           >
-            <SmartImage src={img.src} alt={img.alt} wrapperClassName="w-full h-full" className="w-full h-full object-cover" />
+            <SmartImage src={resolveImage(img)} alt={img.alt} wrapperClassName="w-full h-full" className="w-full h-full object-cover" />
           </button>
         ))}
       </div>

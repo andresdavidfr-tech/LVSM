@@ -1,18 +1,18 @@
 // Catálogo LVSM — fuente de datos única del frontend.
 //
-// NOTA sobre imágenes: las URLs de Unsplash NO pudieron verificarse desde el
-// entorno de build (la allowlist de red bloquea el host). Reemplazar por fotos
-// reales del stock. Para reventa de lujo, cada pieza debería incluir fotos de
-// detalle y de los desgastes (transparencia = confianza). Las "vistas" extra
-// reusan la imagen base con distinto recorte como placeholder.
+// Imágenes: cada una declara un `storageKey` (object key en el bucket de S3) y
+// una `src` de fallback (Unsplash). Si S3 está configurado (ver src/lib/images.ts)
+// y la imagen existe en el bucket, se sirve desde S3; si no, cae al fallback.
+// Subir las fotos reales al bucket en esos keys y luego setear las VITE_S3_*.
 
 export type Condition = 'Inmejorable' | 'Como nueva' | 'Excelente' | 'Vintage Muy Bueno';
 
 export interface ProductImage {
-  src: string;
+  src: string;            // URL de fallback (Unsplash, sin verificar)
+  storageKey?: string;    // object key en S3, ej. "catalogo/<slug>/1.jpg"
   alt: string;
-  caption?: string;   // ej. "Leve roce en esquina inferior"
-  isDefect?: boolean; // foto de condición / desgaste
+  caption?: string;       // ej. "Leve roce en esquina inferior"
+  isDefect?: boolean;     // foto de condición / desgaste
 }
 
 export interface Product {
@@ -45,9 +45,9 @@ export const STATIC_PRODUCTS: Product[] = [
     type: 'Tote',
     priceNumber: null,
     images: [
-      { src: u('photo-1564422170194-896b89110ef8'), alt: 'Louis Vuitton Neverfull MM Monogram' },
-      { src: u('photo-1564422170194-896b89110ef8', '&crop=top'), alt: 'Neverfull – herrajes y costuras' },
-      { src: u('photo-1564422170194-896b89110ef8', '&crop=bottom'), alt: 'Neverfull – base y esquinas', caption: 'Leve pátina en el cuero Vachetta de las asas, propia del uso.', isDefect: true },
+      { src: u('photo-1564422170194-896b89110ef8'), storageKey: 'catalogo/louis-vuitton-neverfull-mm-monogram/1.jpg', alt: 'Louis Vuitton Neverfull MM Monogram' },
+      { src: u('photo-1564422170194-896b89110ef8', '&crop=top'), storageKey: 'catalogo/louis-vuitton-neverfull-mm-monogram/2.jpg', alt: 'Neverfull – herrajes y costuras' },
+      { src: u('photo-1564422170194-896b89110ef8', '&crop=bottom'), storageKey: 'catalogo/louis-vuitton-neverfull-mm-monogram/detalle.jpg', alt: 'Neverfull – base y esquinas', caption: 'Leve pátina en el cuero Vachetta de las asas, propia del uso.', isDefect: true },
     ],
     condition: 'Excelente',
     conditionGrade: 8,
@@ -66,9 +66,9 @@ export const STATIC_PRODUCTS: Product[] = [
     type: 'Shoulder',
     priceNumber: null,
     images: [
-      { src: u('photo-1591561954557-26941169b49e'), alt: 'Gucci GG Marmont Small Shoulder Bag' },
-      { src: u('photo-1591561954557-26941169b49e', '&crop=top'), alt: 'GG Marmont – herraje Doble G' },
-      { src: u('photo-1591561954557-26941169b49e', '&crop=bottom'), alt: 'GG Marmont – matelassé', caption: 'Herrajes con brillo intacto, sin marcas visibles.', isDefect: true },
+      { src: u('photo-1591561954557-26941169b49e'), storageKey: 'catalogo/gucci-gg-marmont-small-shoulder/1.jpg', alt: 'Gucci GG Marmont Small Shoulder Bag' },
+      { src: u('photo-1591561954557-26941169b49e', '&crop=top'), storageKey: 'catalogo/gucci-gg-marmont-small-shoulder/2.jpg', alt: 'GG Marmont – herraje Doble G' },
+      { src: u('photo-1591561954557-26941169b49e', '&crop=bottom'), storageKey: 'catalogo/gucci-gg-marmont-small-shoulder/detalle.jpg', alt: 'GG Marmont – matelassé', caption: 'Herrajes con brillo intacto, sin marcas visibles.', isDefect: true },
     ],
     condition: 'Como nueva',
     conditionGrade: 9,
@@ -87,9 +87,9 @@ export const STATIC_PRODUCTS: Product[] = [
     type: 'Shoulder',
     priceNumber: null,
     images: [
-      { src: u('photo-1575032617751-6ddec2089882'), alt: 'Chanel Classic Flap Bag' },
-      { src: u('photo-1575032617751-6ddec2089882', '&crop=top'), alt: 'Classic Flap – cierre CC' },
-      { src: u('photo-1575032617751-6ddec2089882', '&crop=bottom'), alt: 'Classic Flap – cadena entrelazada', caption: 'Pieza vintage: leve desgaste en el dorado de la cadena.', isDefect: true },
+      { src: u('photo-1575032617751-6ddec2089882'), storageKey: 'catalogo/chanel-classic-flap-bag/1.jpg', alt: 'Chanel Classic Flap Bag' },
+      { src: u('photo-1575032617751-6ddec2089882', '&crop=top'), storageKey: 'catalogo/chanel-classic-flap-bag/2.jpg', alt: 'Classic Flap – cierre CC' },
+      { src: u('photo-1575032617751-6ddec2089882', '&crop=bottom'), storageKey: 'catalogo/chanel-classic-flap-bag/detalle.jpg', alt: 'Classic Flap – cadena entrelazada', caption: 'Pieza vintage: leve desgaste en el dorado de la cadena.', isDefect: true },
     ],
     condition: 'Vintage Muy Bueno',
     conditionGrade: 7,
@@ -108,9 +108,9 @@ export const STATIC_PRODUCTS: Product[] = [
     type: 'Handbag',
     priceNumber: null,
     images: [
-      { src: u('photo-1606760227091-3dd870d97f1d'), alt: 'Louis Vuitton Speedy 30 Damier Ebène' },
-      { src: u('photo-1606760227091-3dd870d97f1d', '&crop=top'), alt: 'Speedy 30 – cierre y candado' },
-      { src: u('photo-1606760227091-3dd870d97f1d', '&crop=bottom'), alt: 'Speedy 30 – base', caption: 'Estructura impecable, sin deformaciones ni manchas.', isDefect: true },
+      { src: u('photo-1606760227091-3dd870d97f1d'), storageKey: 'catalogo/louis-vuitton-speedy-30-damier-ebene/1.jpg', alt: 'Louis Vuitton Speedy 30 Damier Ebène' },
+      { src: u('photo-1606760227091-3dd870d97f1d', '&crop=top'), storageKey: 'catalogo/louis-vuitton-speedy-30-damier-ebene/2.jpg', alt: 'Speedy 30 – cierre y candado' },
+      { src: u('photo-1606760227091-3dd870d97f1d', '&crop=bottom'), storageKey: 'catalogo/louis-vuitton-speedy-30-damier-ebene/detalle.jpg', alt: 'Speedy 30 – base', caption: 'Estructura impecable, sin deformaciones ni manchas.', isDefect: true },
     ],
     condition: 'Inmejorable',
     conditionGrade: 10,

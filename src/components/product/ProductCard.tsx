@@ -7,6 +7,7 @@ import { ConditionBadge } from './ConditionBadge';
 import { PriceTag } from './PriceTag';
 import { useWishlist } from '../../hooks/useWishlist';
 import { waProduct } from '../../lib/whatsapp';
+import { resolveImage } from '../../lib/images';
 import { track } from '../../lib/analytics';
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
@@ -19,7 +20,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
       <Link to={to} onClick={() => track('select_item', { id: product.id, name: product.name })} className="block">
         <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-4 bg-white">
           <SmartImage
-            src={product.images[0].src}
+            src={resolveImage(product.images[0])}
             alt={product.images[0].alt}
             priority={priority}
             wrapperClassName="w-full h-full"

@@ -18,3 +18,9 @@ View your app in AI Studio: https://ai.studio/apps/33da0998-4df1-4221-84ca-c16ae
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Image storage (Amazon S3)
+
+Product images are served from a public S3 bucket with a fallback URL per image.
+Setup steps (bucket policy, key structure, env vars): see
+[docs/IMAGE_STORAGE.md](docs/IMAGE_STORAGE.md).

@@ -5,6 +5,7 @@ import { useWishlist } from '../hooks/useWishlist';
 import { SmartImage } from './ui/SmartImage';
 import { PriceTag } from './product/PriceTag';
 import { waProduct } from '../lib/whatsapp';
+import { resolveImage } from '../lib/images';
 import { track } from '../lib/analytics';
 
 export function WishlistModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
@@ -45,7 +46,7 @@ export function WishlistModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
                   {items.map((product) => (
                     <div key={product.id} className="flex items-center gap-6 group">
                       <Link to={`/producto/${product.slug}`} onClick={onClose} className="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
-                        <SmartImage src={product.images[0].src} alt={product.images[0].alt} wrapperClassName="w-full h-full" className="w-full h-full object-cover" />
+                        <SmartImage src={resolveImage(product.images[0])} alt={product.images[0].alt} wrapperClassName="w-full h-full" className="w-full h-full object-cover" />
                       </Link>
                       <div className="flex-grow">
                         <p className="text-[10px] uppercase tracking-widest text-brand-accent">{product.brand}</p>
