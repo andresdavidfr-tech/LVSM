@@ -73,9 +73,54 @@ Variables* y volver a desplegar.
 Para servir vía CDN, setear `VITE_IMAGE_BASE_URL="https://cdn.tudominio.com"`;
 tiene prioridad sobre la URL nativa de S3.
 
-## Próximo paso: subida desde el panel Admin
+## Subida desde el panel Admin (URLs prefirmadas)
 
-Subir a S3 desde el navegador requiere credenciales firmadas. El patrón seguro
-es un endpoint en el servidor Express que genere **URLs prefirmadas** (con
-credenciales de AWS solo en el backend, nunca en el cliente). Queda pendiente
-para una segunda iteración.
+El Admin (`/admin` → sección **Imágenes**) permite subir las fotos de cada pieza
+directo a S3. El navegador nunca ve las credenciales AWS:
+
+1. El cliente pide una URL prefirmada a `POST /api/uploads/presign`
+   (`{ key, contentType }`).
+2. El servidor valida el key y el tipo, firma con las credenciales y devuelve la
+   URL (válida 5 min).
+3. El navegador hace `PUT` del archivo a esa URL → S3.
+
+### Credenciales (server-side, secretas)
+
+Crear un usuario IAM con permiso `s3:PutObject` sobre el bucket y cargar en
+`.env.local` (local) y en Vercel (Production):
+
+```
+AWS_ACCESS_KEY_ID="..."
+AWS_SECRET_ACCESS_KEY="..."
+AWS_REGION="us-east-1"
+S3_BUCKET="lvsm-847008501986-us-east-1-an"
+```
+
+Política IAM mínima:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    { "Effect": "Allow", "Action": "s3:PutObject", "Resource": "arn:aws:s3:::lvsm-847008501986-us-east-1-an/catalogo/*" }
+  ]
+}
+```
+
+### CORS del bucket (necesario para el PUT desde el navegador)
+
+En el bucket → **Permisos** → **CORS**:
+
+```json
+[
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["PUT", "GET"],
+    "AllowedOrigins": ["https://lvsm.vercel.app", "http://localhost:3000"],
+    "ExposeHeaders": []
+  }
+]
+```
+
+> El servidor debe estar corriendo (`npm run server`) para que el endpoint de
+> presign funcione; con `npm run dev` (Vite solo) no hay backend.

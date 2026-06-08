@@ -1,6 +1,7 @@
 import express, { type Express } from "express";
 import { STATIC_PRODUCTS } from "./src/data/products";
 import { STATIC_REVIEWS } from "./src/data/reviews";
+import { presignUpload, isS3Configured, isValidKey, ALLOWED_TYPES } from "./s3";
 
 /**
  * Crea la app Express con las rutas de API (sin Vite ni archivos estáticos),
@@ -50,6 +51,32 @@ export function createApiApp(db: any): Express {
 
   app.get("/api/reviews", (_req, res) => {
     res.json(STATIC_REVIEWS);
+  });
+
+  // URL prefirmada para subir una imagen de producto a S3 (lo usa el Admin).
+  // Las credenciales AWS nunca salen del servidor; el navegador sube directo a S3.
+  app.post("/api/uploads/presign", async (req, res) => {
+    const { key, contentType } = req.body ?? {};
+
+    if (!key || !contentType) {
+      return res.status(400).json({ error: "key y contentType son requeridos" });
+    }
+    if (!isValidKey(key)) {
+      return res.status(400).json({ error: "key inválido (debe ser catalogo/<slug>/<archivo>)" });
+    }
+    if (!ALLOWED_TYPES.includes(contentType)) {
+      return res.status(400).json({ error: "Tipo de archivo no permitido" });
+    }
+    if (!isS3Configured()) {
+      return res.status(503).json({ error: "S3 no está configurado en el servidor" });
+    }
+
+    try {
+      res.json(await presignUpload(key, contentType));
+    } catch (error) {
+      console.error("Presign error:", error);
+      res.status(500).json({ error: "No se pudo generar la URL de subida" });
+    }
   });
 
   // Admin: ver leads (para demo del MVP)

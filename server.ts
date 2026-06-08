@@ -1,9 +1,15 @@
+import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import express from "express";
 import Database from "better-sqlite3";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createApiApp } from "./api";
+
+// Carga credenciales (S3, etc.) desde .env.local / .env en desarrollo local.
+// En Vercel las variables se inyectan directamente en process.env.
+dotenv.config({ path: ".env.local" });
+dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 

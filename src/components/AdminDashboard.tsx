@@ -17,6 +17,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { AdminImages } from './admin/AdminImages';
 
 // Mock Data
 // NOTA: imágenes de carteras de lujo seminuevas. Las 3 piezas compartidas con
@@ -41,7 +42,7 @@ const MOCK_REVIEWS = [
   { id: 3, name: 'Lucía P.', text: 'Vendí mi cartera y fue súper rápido.', time: 'Hace 2 semanas', status: 'pending' },
 ];
 
-type View = 'dashboard' | 'catalog' | 'crm' | 'reviews' | 'settings';
+type View = 'dashboard' | 'catalog' | 'images' | 'crm' | 'reviews' | 'settings';
 
 export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const [activeView, setActiveView] = useState<View>('dashboard');
@@ -317,6 +318,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         <nav className="flex-grow py-6">
           <SidebarItem id="dashboard" icon={LayoutDashboard} label="Dashboard" />
           <SidebarItem id="catalog" icon={ShoppingBag} label="Catálogo" />
+          <SidebarItem id="images" icon={ImageIcon} label="Imágenes" />
           <SidebarItem id="crm" icon={Users} label="Select Club" />
           <SidebarItem id="reviews" icon={MessageSquare} label="Reseñas" />
           <SidebarItem id="settings" icon={Settings} label="Configuración" />
@@ -339,7 +341,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-2 block">Administración</span>
             <h2 className="text-4xl font-serif capitalize">
-              {activeView === 'crm' ? 'Select Club CRM' : activeView}
+              {activeView === 'crm' ? 'Select Club CRM' : activeView === 'images' ? 'Imágenes' : activeView}
             </h2>
           </div>
           <div className="text-right">
@@ -358,6 +360,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           >
             {activeView === 'dashboard' && <DashboardSummary />}
             {activeView === 'catalog' && <CatalogView />}
+            {activeView === 'images' && <AdminImages />}
             {activeView === 'crm' && <CRMView />}
             {activeView === 'reviews' && <ReviewsView />}
             {activeView === 'settings' && <SettingsView />}
