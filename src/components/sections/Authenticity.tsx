@@ -31,7 +31,7 @@ export function Authenticity() {
 
           <div className="order-1 md:order-2">
             <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Confianza Total</span>
-            <h2 className="text-5xl font-serif mb-8">Autenticidad Garantizada</h2>
+            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Autenticidad Garantizada</h2>
             <p className="text-lg text-brand-ink/70 mb-8 font-light leading-relaxed">
               Sabemos que la mayor preocupación al comprar lujo pre-owned es la originalidad. En LVSM, cada pieza pasa por un riguroso proceso de verificación basado en experiencia real, no en promesas de tecnología.
             </p>

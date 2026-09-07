@@ -59,7 +59,7 @@ export function CatalogGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Nuestra Colección</span>
-          <h2 className="text-5xl font-serif">Piezas Seleccionadas</h2>
+          <h2 className="text-4xl sm:text-5xl font-serif">Piezas Seleccionadas</h2>
         </div>
 
         {/* Filtros funcionales: marca, estado y búsqueda */}

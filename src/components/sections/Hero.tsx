@@ -8,7 +8,7 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
           <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Moda Circular de Lujo</span>
-          <h2 className="text-6xl md:text-8xl font-serif leading-[0.9] mb-8">
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-serif leading-[0.95] md:leading-[0.9] mb-8">
             El lujo que <br />
             <span className="italic">mereces</span>, <br />
             al alcance.

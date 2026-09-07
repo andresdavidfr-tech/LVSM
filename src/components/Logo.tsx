@@ -49,7 +49,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = 40, variant =
         </svg>
         <div className="flex flex-col leading-none">
           <span className="text-xl font-serif tracking-[0.2em] uppercase">LVSM</span>
-          <span className="text-[8px] uppercase tracking-[0.3em] opacity-50">The Collective</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50">The Collective</span>
         </div>
       </div>
     );
@@ -85,7 +85,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = 40, variant =
         </svg>
         <div className="flex flex-col leading-none">
           <span className="text-xl font-serif tracking-[0.2em] uppercase">LVSM</span>
-          <span className="text-[8px] uppercase tracking-[0.3em] opacity-50">Select Club</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50">Select Club</span>
         </div>
       </div>
     );

@@ -8,7 +8,7 @@ export function AboutUs() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
             <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Nuestra Historia</span>
-            <h2 className="text-5xl font-serif mb-8">Pasión por el Lujo Atemporal</h2>
+            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Pasión por el Lujo Atemporal</h2>
             <div className="space-y-6 text-brand-ink/70 font-light leading-relaxed">
               <p>
                 LVSM nació en septiembre de 2021 de la mano de Florencia, cuya pasión por las marcas de lujo —especialmente Louis Vuitton— la llevó a incursionar en el mundo de la moda circular.
@@ -45,7 +45,7 @@ export function AboutUs() {
             <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-brand-gold/10 rounded-full -z-0 blur-3xl" />
             <div className="absolute -top-10 -left-10 p-6 bg-brand-paper rounded-2xl shadow-xl z-20 max-w-[200px]">
               <p className="text-xs font-serif italic">&ldquo;Cada cartera tiene una historia que merece ser continuada.&rdquo;</p>
-              <p className="text-[8px] uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
+              <p className="text-[10px] uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
             </div>
           </motion.div>
         </div>

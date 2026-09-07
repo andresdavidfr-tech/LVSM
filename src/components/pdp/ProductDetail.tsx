@@ -108,20 +108,20 @@ export function ProductDetail() {
 
             {/* Ficha técnica: elimina dudas pre-compra */}
             <dl className="space-y-4 mb-8 border-t border-brand-ink/10 pt-8">
-              <div className="flex gap-4 text-sm">
-                <dt className="flex items-center gap-2 w-40 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+              <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
                   <Tag size={14} /> Material
                 </dt>
                 <dd className="flex-1">{product.material}</dd>
               </div>
-              <div className="flex gap-4 text-sm">
-                <dt className="flex items-center gap-2 w-40 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+              <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
                   <Ruler size={14} /> Medidas
                 </dt>
                 <dd className="flex-1">{product.measurements}</dd>
               </div>
-              <div className="flex gap-4 text-sm">
-                <dt className="flex items-center gap-2 w-40 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+              <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
                   <Package size={14} /> Incluye
                 </dt>
                 <dd className="flex-1">{product.includes.join(' · ')}</dd>

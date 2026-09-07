@@ -233,7 +233,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         <div key={review.id} className="bg-white p-8 rounded-3xl shadow-sm border border-brand-ink/5 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start mb-4">
-              <span className={`px-3 py-1 rounded-full text-[8px] uppercase tracking-widest font-bold ${
+              <span className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold ${
                 review.status === 'approved' ? 'bg-green-100 text-green-600' : 'bg-yellow-100 text-yellow-600'
               }`}>
                 {review.status === 'approved' ? 'Aprobada' : 'Pendiente'}
