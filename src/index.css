@@ -26,11 +26,11 @@
 
 @layer base {
   html {
-    /* +10% sobre el tamaño de fuente del navegador: como casi todo el
-       sitio usa unidades rem (incluida la escala de Tailwind y los
+    /* Escalado acumulado: +10% pedido antes, +10% más ahora (110% * 1.10).
+       Como casi todo el sitio usa unidades rem (la escala de Tailwind y los
        tokens custom de arriba), esto escala TODO el texto de una,
        proporcionalmente, sin tener que retocar cada clase. */
-    font-size: 110%;
+    font-size: 121%;
   }
 
   body {

@@ -22,7 +22,7 @@ export function Navbar({ onOpenWishlist }: { onOpenWishlist: () => void }) {
     <button onClick={onOpenWishlist} aria-label="Abrir wishlist" className={`relative p-2 hover:text-brand-gold transition-colors ${className}`}>
       <Heart size={20} />
       {count > 0 && (
-        <span className="absolute -top-1 -right-1 bg-brand-accent text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+        <span className="absolute -top-1 -right-1 bg-brand-accent text-white text-[0.5rem] w-4 h-4 rounded-full flex items-center justify-center font-bold">
           {count}
         </span>
       )}

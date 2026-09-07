@@ -70,7 +70,7 @@ export function ContactForm() {
             <GuaranteeStrip dark />
           </div>
 
-          <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl">
+          <div className="bg-white text-brand-ink p-8 md:p-12 rounded-[40px] shadow-2xl">
             {status === 'success' ? (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
