@@ -26,11 +26,12 @@
 
 @layer base {
   html {
-    /* Escalado acumulado: +10% pedido antes, +10% más ahora (110% * 1.10).
-       Como casi todo el sitio usa unidades rem (la escala de Tailwind y los
-       tokens custom de arriba), esto escala TODO el texto de una,
-       proporcionalmente, sin tener que retocar cada clase. */
-    font-size: 121%;
+    /* Escalado acumulado: +10%, +10% más, y ahora -5% porque había quedado
+       muy grande (121% * 0.95 ≈ 115%). Como casi todo el sitio usa unidades
+       rem (la escala de Tailwind y los tokens custom de arriba), esto
+       escala TODO el texto de una, proporcionalmente, sin tener que
+       retocar cada clase. */
+    font-size: 115%;
   }
 
   body {
