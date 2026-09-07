@@ -20,7 +20,7 @@ const guarantees = [
 export const GuaranteeStrip = ({ className = '' }: { className?: string }) => (
   <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 ${className}`}>
     {guarantees.map(({ icon: Icon, label }) => (
-      <div key={label} className="flex items-center gap-2 text-[11px] text-brand-ink/70">
+      <div key={label} className="flex items-center gap-2 text-xs text-brand-ink/70">
         <Icon size={16} className="text-brand-gold flex-shrink-0" />
         {label}
       </div>

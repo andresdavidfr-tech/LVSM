@@ -25,6 +25,14 @@
 }
 
 @layer base {
+  html {
+    /* +10% sobre el tamaño de fuente del navegador: como casi todo el
+       sitio usa unidades rem (incluida la escala de Tailwind y los
+       tokens custom de arriba), esto escala TODO el texto de una,
+       proporcionalmente, sin tener que retocar cada clase. */
+    font-size: 110%;
+  }
+
   body {
     @apply bg-brand-paper text-brand-ink font-sans antialiased;
   }
