@@ -11,7 +11,7 @@ const links = [
   { href: '/#authenticity', label: 'Autenticidad' },
   { href: '/#about', label: 'Nosotros' },
   { href: '/#consignment', label: 'Vender' },
-  { href: '/#contact', label: 'Inner Circle' },
+  { href: '/#contact', label: 'Unite al Club' },
 ];
 
 export function Navbar({ onOpenWishlist }: { onOpenWishlist: () => void }) {
@@ -74,7 +74,7 @@ export function Navbar({ onOpenWishlist }: { onOpenWishlist: () => void }) {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden bg-brand-paper border-b border-brand-ink/10 px-4 pt-2 pb-6 space-y-4"
           >
-            {links.slice(0, 4).map((l) => (
+            {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setIsOpen(false)} className="block text-sm uppercase tracking-widest">
                 {l.label}
               </a>
