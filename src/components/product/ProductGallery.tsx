@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, ImageOff } from 'lucide-react';
 import { SmartImage } from '../ui/SmartImage';
-import { resolveImage } from '../../lib/images';
+import { resolveImage, isPlaceholderImage } from '../../lib/images';
 import type { ProductImage } from '../../data/products';
 
 // Galería para artículos usados: imagen principal grande con detalle de los
@@ -9,6 +9,7 @@ import type { ProductImage } from '../../data/products';
 export function ProductGallery({ images }: { images: ProductImage[] }) {
   const [active, setActive] = useState(0);
   const current = images[active] ?? images[0];
+  const placeholder = isPlaceholderImage(current);
 
   return (
     <div>
@@ -20,7 +21,15 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
           wrapperClassName="w-full h-full"
           className="w-full h-full object-cover"
         />
-        {current.isDefect && current.caption && (
+        {placeholder && (
+          <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-500/90 text-white text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+            <ImageOff size={11} /> Foto referencial
+          </div>
+        )}
+        {/* El caption de condición/defecto solo se muestra sobre la foto real del
+            artículo: mostrarlo sobre el placeholder afirmaría un desgaste
+            puntual que esa foto genérica no puede respaldar. */}
+        {!placeholder && current.isDefect && current.caption && (
           <div className="absolute bottom-0 inset-x-0 bg-black/65 text-white text-xs p-3 flex items-center gap-2">
             <AlertCircle size={14} className="flex-shrink-0" /> {current.caption}
           </div>

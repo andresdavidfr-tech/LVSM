@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Heart, MessageCircle, ShieldCheck } from 'lucide-react';
+import { Heart, ImageOff, MessageCircle, ShieldCheck } from 'lucide-react';
 import type { Product } from '../../data/products';
 import { SmartImage } from '../ui/SmartImage';
 import { ConditionBadge } from './ConditionBadge';
 import { PriceTag } from './PriceTag';
 import { useWishlist } from '../../hooks/useWishlist';
 import { waProduct } from '../../lib/whatsapp';
-import { resolveImage } from '../../lib/images';
+import { resolveImage, isPlaceholderImage } from '../../lib/images';
 import { track } from '../../lib/analytics';
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
@@ -29,6 +29,11 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           {product.authVerified && (
             <span className="absolute top-4 left-4 inline-flex items-center gap-1 bg-white/85 backdrop-blur-sm text-emerald-700 text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
               <ShieldCheck size={11} /> Verificada
+            </span>
+          )}
+          {isPlaceholderImage(product.images[0]) && (
+            <span className="absolute bottom-4 left-4 inline-flex items-center gap-1 bg-amber-500/90 text-white text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+              <ImageOff size={11} /> Foto referencial
             </span>
           )}
           <button
