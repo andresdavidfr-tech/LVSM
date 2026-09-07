@@ -17,7 +17,7 @@ function StickyBuyBar({ product }: { product: Product }) {
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 bg-brand-paper/95 backdrop-blur border-t border-brand-ink/10 p-4 flex items-center justify-between gap-4 md:hidden">
       <div>
-        <p className="text-[10px] uppercase tracking-widest opacity-50">{product.brand}</p>
+        <p className="text-xs uppercase tracking-widest opacity-50">{product.brand}</p>
         <PriceTag value={product.priceNumber} className="font-medium" />
       </div>
       <a
@@ -109,19 +109,19 @@ export function ProductDetail() {
             {/* Ficha técnica: elimina dudas pre-compra */}
             <dl className="space-y-4 mb-8 border-t border-brand-ink/10 pt-8">
               <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
-                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-xs font-bold">
                   <Tag size={14} /> Material
                 </dt>
                 <dd className="flex-1">{product.material}</dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
-                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-xs font-bold">
                   <Ruler size={14} /> Medidas
                 </dt>
                 <dd className="flex-1">{product.measurements}</dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 text-sm">
-                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-[10px] font-bold">
+                <dt className="flex items-center gap-2 sm:w-40 flex-shrink-0 text-brand-ink/50 uppercase tracking-widest text-xs font-bold">
                   <Package size={14} /> Incluye
                 </dt>
                 <dd className="flex-1">{product.includes.join(' · ')}</dd>

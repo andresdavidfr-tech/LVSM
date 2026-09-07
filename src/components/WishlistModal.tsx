@@ -49,7 +49,7 @@ export function WishlistModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
                         <SmartImage src={resolveImage(product.images[0])} alt={product.images[0].alt} wrapperClassName="w-full h-full" className="w-full h-full object-cover" />
                       </Link>
                       <div className="flex-grow">
-                        <p className="text-[10px] uppercase tracking-widest text-brand-accent">{product.brand}</p>
+                        <p className="text-xs uppercase tracking-widest text-brand-accent">{product.brand}</p>
                         <Link to={`/producto/${product.slug}`} onClick={onClose} className="text-lg font-serif hover:text-brand-gold transition-colors">
                           {product.name}
                         </Link>

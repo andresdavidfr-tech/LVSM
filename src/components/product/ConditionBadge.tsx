@@ -6,7 +6,7 @@ const dotColor = (grade: number) =>
 // Comunica el estado del artículo usado de forma clara y consistente: clave
 // para reducir la ansiedad del comprador de segunda mano.
 export const ConditionBadge = ({ condition, grade }: { condition: Condition; grade: number }) => (
-  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold">
+  <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold">
     <span className={`w-2 h-2 rounded-full ${dotColor(grade)}`} />
     {condition} · {grade}/10
   </span>

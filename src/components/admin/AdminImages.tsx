@@ -36,8 +36,8 @@ function UploadSlot({ image }: { image: ProductImage }) {
         {state === 'idle' && <UploadCloud size={16} className="text-brand-ink/50" />}
         {state === 'done' ? 'Subida' : state === 'error' ? 'Error' : state === 'uploading' ? 'Subiendo…' : 'Subir'}
       </div>
-      <code className="text-[10px] text-brand-ink/50 truncate">{image.storageKey}</code>
-      {state === 'error' && <span className="text-[10px] text-red-500">{msg}</span>}
+      <code className="text-xs text-brand-ink/50 truncate">{image.storageKey}</code>
+      {state === 'error' && <span className="text-xs text-red-500">{msg}</span>}
     </label>
   );
 }
@@ -61,7 +61,7 @@ export function AdminImages() {
       {products.map((p) => (
         <div key={p.id} className="bg-white p-6 rounded-3xl shadow-sm border border-brand-ink/5">
           <h3 className="font-serif text-lg mb-1">{p.name}</h3>
-          <p className="text-[10px] uppercase tracking-widest text-brand-accent mb-4">{p.brand}</p>
+          <p className="text-xs uppercase tracking-widest text-brand-accent mb-4">{p.brand}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {p.images.map((img, i) => (
               <UploadSlot key={i} image={img} />

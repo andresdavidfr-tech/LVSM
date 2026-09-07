@@ -47,14 +47,14 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-brand-ink/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] uppercase tracking-widest opacity-40">
+          <p className="text-xs uppercase tracking-widest opacity-40">
             © {new Date().getFullYear()} LVSM. Todos los derechos reservados.
           </p>
-          <div className="flex gap-8 text-[10px] uppercase tracking-widest opacity-40 items-center">
+          <div className="flex gap-8 text-xs uppercase tracking-widest opacity-40 items-center">
             <a href="#" className="hover:opacity-100">Privacidad</a>
             <a href="#" className="hover:opacity-100">Términos</a>
             <button onClick={() => navigate('/admin')} className="hover:opacity-100 flex items-center gap-1">
-              <Lock size={10} /> Admin
+              <Lock size={12} /> Admin
             </button>
           </div>
         </div>

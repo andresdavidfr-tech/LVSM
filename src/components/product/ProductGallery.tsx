@@ -22,8 +22,8 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
           className="w-full h-full object-cover"
         />
         {placeholder && (
-          <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-500/90 text-white text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
-            <ImageOff size={11} /> Foto referencial
+          <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-500/90 text-white text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+            <ImageOff size={13} /> Foto referencial
           </div>
         )}
         {/* El caption de condición/defecto solo se muestra sobre la foto real del

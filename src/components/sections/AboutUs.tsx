@@ -25,11 +25,11 @@ export function AboutUs() {
             <div className="mt-12 grid grid-cols-2 gap-8">
               <div>
                 <h4 className="text-3xl font-serif text-brand-ink mb-2">2021</h4>
-                <p className="text-[10px] uppercase tracking-widest opacity-50">Año de Fundación</p>
+                <p className="text-xs uppercase tracking-widest opacity-50">Año de Fundación</p>
               </div>
               <div>
                 <h4 className="text-3xl font-serif text-brand-ink mb-2">11k+</h4>
-                <p className="text-[10px] uppercase tracking-widest opacity-50">Miembros del Club</p>
+                <p className="text-xs uppercase tracking-widest opacity-50">Miembros del Club</p>
               </div>
             </div>
           </motion.div>
@@ -46,7 +46,7 @@ export function AboutUs() {
             <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-brand-gold/10 rounded-full -z-0 blur-3xl" />
             <div className="absolute -top-10 -left-10 p-6 bg-brand-paper rounded-2xl shadow-xl z-20 max-w-[200px]">
               <p className="text-xs font-serif italic">&ldquo;Cada cartera tiene una historia que merece ser continuada.&rdquo;</p>
-              <p className="text-[10px] uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
+              <p className="text-xs uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
             </div>
           </motion.div>
         </div>

@@ -72,10 +72,10 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           { label: 'Stock Activo', value: '45', change: '-2' },
         ].map((stat, i) => (
           <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-brand-ink/5">
-            <p className="text-[10px] uppercase tracking-widest opacity-50 mb-1">{stat.label}</p>
+            <p className="text-xs uppercase tracking-widest opacity-50 mb-1">{stat.label}</p>
             <div className="flex items-end gap-2">
               <h4 className="text-2xl font-serif">{stat.value}</h4>
-              <span className={`text-[10px] mb-1 ${stat.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+              <span className={`text-xs mb-1 ${stat.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
                 {stat.change}
               </span>
             </div>
@@ -107,12 +107,12 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               <div key={review.id} className="p-4 bg-brand-paper/50 rounded-xl">
                 <div className="flex justify-between mb-2">
                   <p className="text-sm font-bold">{review.name}</p>
-                  <span className="text-[10px] opacity-40">{review.time}</span>
+                  <span className="text-xs opacity-40">{review.time}</span>
                 </div>
                 <p className="text-xs italic mb-4">"{review.text}"</p>
                 <div className="flex gap-2">
-                  <button className="flex-1 bg-brand-ink text-brand-paper py-2 rounded-lg text-[10px] uppercase tracking-widest hover:bg-green-600 transition-colors">Aprobar</button>
-                  <button className="flex-1 border border-brand-ink/10 py-2 rounded-lg text-[10px] uppercase tracking-widest hover:bg-red-50 transition-colors">Ocultar</button>
+                  <button className="flex-1 bg-brand-ink text-brand-paper py-2 rounded-lg text-xs uppercase tracking-widest hover:bg-green-600 transition-colors">Aprobar</button>
+                  <button className="flex-1 border border-brand-ink/10 py-2 rounded-lg text-xs uppercase tracking-widest hover:bg-red-50 transition-colors">Ocultar</button>
                 </div>
               </div>
             ))}
@@ -140,7 +140,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="bg-brand-paper/50 text-[10px] uppercase tracking-widest opacity-50">
+            <tr className="bg-brand-paper/50 text-xs uppercase tracking-widest opacity-50">
               <th className="px-8 py-4">Imagen</th>
               <th className="px-8 py-4">Marca</th>
               <th className="px-8 py-4">Modelo</th>
@@ -157,7 +157,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
                 <td className="px-8 py-4 font-medium text-sm">{product.brand}</td>
                 <td className="px-8 py-4 text-sm opacity-70">{product.model}</td>
                 <td className="px-8 py-4">
-                  <span className="px-3 py-1 bg-brand-gold/20 text-brand-accent rounded-full text-[10px] uppercase tracking-widest font-bold">
+                  <span className="px-3 py-1 bg-brand-gold/20 text-brand-accent rounded-full text-xs uppercase tracking-widest font-bold">
                     {product.condition}
                   </span>
                 </td>
@@ -197,7 +197,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="bg-brand-paper/50 text-[10px] uppercase tracking-widest opacity-50">
+            <tr className="bg-brand-paper/50 text-xs uppercase tracking-widest opacity-50">
               <th className="px-8 py-4">Nombre</th>
               <th className="px-8 py-4">Email</th>
               <th className="px-8 py-4">Teléfono</th>
@@ -233,12 +233,12 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         <div key={review.id} className="bg-white p-8 rounded-3xl shadow-sm border border-brand-ink/5 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start mb-4">
-              <span className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold ${
+              <span className={`px-3 py-1 rounded-full text-xs uppercase tracking-widest font-bold ${
                 review.status === 'approved' ? 'bg-green-100 text-green-600' : 'bg-yellow-100 text-yellow-600'
               }`}>
                 {review.status === 'approved' ? 'Aprobada' : 'Pendiente'}
               </span>
-              <span className="text-[10px] opacity-40">{review.time}</span>
+              <span className="text-xs opacity-40">{review.time}</span>
             </div>
             <p className="text-brand-ink/70 italic font-serif mb-6 leading-relaxed">"{review.text}"</p>
           </div>
@@ -270,11 +270,11 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         <h3 className="text-xl font-serif mb-6">Configuración Hero</h3>
         <div className="grid grid-cols-1 gap-6">
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Título Principal</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">Título Principal</label>
             <input type="text" defaultValue="MODA CIRCULAR DE LUJO" className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold" />
           </div>
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Descripción</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">Descripción</label>
             <textarea rows={3} defaultValue="El lujo que mereces, al alcance." className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold resize-none" />
           </div>
         </div>
@@ -284,19 +284,19 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         <h3 className="text-xl font-serif mb-6">Métricas y Contacto</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Año de Fundación</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">Año de Fundación</label>
             <input type="number" defaultValue="2021" className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold" />
           </div>
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Miembros del Club</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">Miembros del Club</label>
             <input type="text" defaultValue="11k+" className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold" />
           </div>
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">WhatsApp</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">WhatsApp</label>
             <input type="text" defaultValue="+54 9 11 3404 1112" className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold" />
           </div>
           <div className="space-y-2">
-            <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Instagram</label>
+            <label className="text-xs uppercase tracking-widest font-bold opacity-50">Instagram</label>
             <input type="text" defaultValue="@lv_sanmiguel" className="w-full bg-brand-paper px-6 py-3 rounded-xl text-sm outline-none focus:ring-1 ring-brand-gold" />
           </div>
         </div>
@@ -312,7 +312,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
       {/* Sidebar */}
       <aside className="w-64 bg-white border-r border-brand-ink/5 flex flex-col fixed h-full z-20">
         <div className="p-8 border-b border-brand-ink/5">
-          <div className="text-xl font-serif tracking-tighter">LVSM <span className="text-[10px] uppercase tracking-widest opacity-50 block">Admin Panel</span></div>
+          <div className="text-xl font-serif tracking-tighter">LVSM <span className="text-xs uppercase tracking-widest opacity-50 block">Admin Panel</span></div>
         </div>
         
         <nav className="flex-grow py-6">
@@ -345,7 +345,7 @@ export const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
             </h2>
           </div>
           <div className="text-right">
-            <p className="text-[10px] uppercase tracking-widest opacity-40">Lunes, 9 de Marzo 2026</p>
+            <p className="text-xs uppercase tracking-widest opacity-40">Lunes, 9 de Marzo 2026</p>
             <p className="text-xs font-medium">Bienvenida, Florencia</p>
           </div>
         </header>

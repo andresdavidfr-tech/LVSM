@@ -43,7 +43,7 @@ export const ReviewCard = ({ review }: { review: Review }) => (
         {review.name}
         {review.verified && <BadgeCheck size={13} className="text-emerald-500" />}
       </span>
-      <span className="text-[10px] uppercase tracking-widest opacity-40">{review.date}</span>
+      <span className="text-xs uppercase tracking-widest opacity-40">{review.date}</span>
     </div>
   </div>
 );

@@ -4,7 +4,20 @@
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", serif;
-  
+
+  /* Piso de legibilidad subido a propósito: la mayoría del público del
+     sitio tiene 40+ años y puede usar lentes. Nada de texto de lectura
+     debería quedar por debajo de esto, ni siquiera las etiquetas chicas
+     (eyebrows, badges, meta info) que por defecto usan text-xs/text-sm. */
+  --text-xs: 0.8125rem;   /* 13px (antes 12px) */
+  --text-xs--line-height: 1.35;
+  --text-sm: 0.9375rem;   /* 15px (antes 14px) */
+  --text-sm--line-height: 1.5;
+  --text-base: 1.0625rem; /* 17px (antes 16px) */
+  --text-base--line-height: 1.65;
+  --text-lg: 1.1875rem;   /* 19px (antes 18px) */
+  --text-lg--line-height: 1.7;
+
   --color-brand-paper: #F8F5F2;
   --color-brand-ink: #111111;
   --color-brand-gold: #D4C3A3;

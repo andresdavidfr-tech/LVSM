@@ -29,14 +29,14 @@ export function Hero() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute bottom-6 left-6 inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-ink text-[10px] uppercase tracking-widest font-semibold px-3 py-1.5 rounded-full shadow-lg">
+          <div className="absolute bottom-6 left-6 inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-ink text-xs uppercase tracking-widest font-semibold px-3 py-1.5 rounded-full shadow-lg">
             <MapPin size={12} className="text-brand-accent" /> Puerto Madero, Buenos Aires
           </div>
         </motion.div>
       </div>
 
       <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:block">
-        <p className="vertical-text text-[10px] uppercase tracking-[0.5em] opacity-20 whitespace-nowrap">
+        <p className="vertical-text text-xs uppercase tracking-[0.5em] opacity-20 whitespace-nowrap">
           LOUIS VUITTON • GUCCI • CHANEL • PRADA • HERMÈS
         </p>
       </div>

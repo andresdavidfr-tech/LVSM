@@ -86,12 +86,12 @@ export function ContactForm() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Nombre Completo</label>
+                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Nombre Completo</label>
                     <input required type="text" value={formData.name} onChange={field('name')} placeholder="Ej: María García"
                       className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Email</label>
+                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Email</label>
                     <input required type="email" value={formData.email} onChange={field('email')} placeholder="maria@ejemplo.com"
                       className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
                   </div>
@@ -99,12 +99,12 @@ export function ContactForm() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Teléfono (Opcional)</label>
+                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Teléfono (Opcional)</label>
                     <input type="tel" value={formData.phone} onChange={field('phone')} placeholder="+54 9 11 ..."
                       className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Interés Principal</label>
+                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Interés Principal</label>
                     <select value={formData.interest} onChange={field('interest')}
                       className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light appearance-none">
                       <option value="Comprar">Quiero Comprar</option>
@@ -115,7 +115,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest font-bold opacity-50">Mensaje o Marca de Interés</label>
+                  <label className="text-xs uppercase tracking-widest font-bold opacity-50">Mensaje o Marca de Interés</label>
                   <textarea rows={3} value={formData.message} onChange={field('message')} placeholder="¿Buscás algún modelo en particular?"
                     className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light resize-none" />
                 </div>
