@@ -36,41 +36,41 @@ export function ContactForm() {
     setFormData({ ...formData, [key]: e.target.value });
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-brand-accent text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">The Collective</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold mb-4 block">The Collective</span>
             <h2 className="text-4xl sm:text-5xl font-serif mb-8">Unite a nuestro Select Club</h2>
-            <p className="text-lg text-brand-ink/70 mb-8 font-light leading-relaxed">
+            <p className="text-lg text-white/80 mb-8 font-light leading-relaxed">
               Dejanos tus datos para recibir acceso prioritario a nuestra curaduría, ventas privadas y eventos exclusivos de LVSM.
             </p>
 
             <div className="space-y-6 mb-10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-paper flex items-center justify-center text-brand-accent flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-accent flex-shrink-0">
                   <Star size={20} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm uppercase tracking-widest mb-1">Acceso Anticipado</h4>
-                  <p className="text-sm text-brand-ink/60">Enterate antes que nadie cuando llega esa pieza que tanto buscás.</p>
+                  <p className="text-sm text-white/70">Enterate antes que nadie cuando llega esa pieza que tanto buscás.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-paper flex items-center justify-center text-brand-accent flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-accent flex-shrink-0">
                   <Heart size={20} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm uppercase tracking-widest mb-1">Ventas Privadas</h4>
-                  <p className="text-sm text-brand-ink/60">Invitaciones exclusivas a showrooms y preventas con precios especiales.</p>
+                  <p className="text-sm text-white/70">Invitaciones exclusivas a showrooms y preventas con precios especiales.</p>
                 </div>
               </div>
             </div>
 
-            <GuaranteeStrip />
+            <GuaranteeStrip dark />
           </div>
 
-          <div className="bg-brand-paper p-8 md:p-12 rounded-[40px] shadow-sm">
+          <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl">
             {status === 'success' ? (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -120,10 +120,20 @@ export function ContactForm() {
                     className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light resize-none" />
                 </div>
 
-                <button disabled={status === 'loading'} type="submit"
-                  className="w-full bg-brand-ink text-brand-paper py-4 rounded-full text-xs uppercase tracking-widest hover:bg-brand-accent transition-all flex items-center justify-center gap-3 disabled:opacity-50">
-                  {status === 'loading' ? <Loader2 className="animate-spin" size={18} /> : <>Enviar Información <Send size={16} /></>}
-                </button>
+                <div className="relative">
+                  {status !== 'loading' && (
+                    <motion.span
+                      aria-hidden
+                      className="absolute inset-0 rounded-full bg-brand-accent pointer-events-none"
+                      animate={{ opacity: [0.5, 0, 0.5], scale: [1, 1.08, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  )}
+                  <button disabled={status === 'loading'} type="submit"
+                    className="relative w-full bg-brand-ink text-brand-paper py-4 rounded-full text-xs uppercase tracking-widest hover:bg-brand-accent transition-all flex items-center justify-center gap-3 disabled:opacity-50">
+                    {status === 'loading' ? <Loader2 className="animate-spin" size={18} /> : <>Suscribirme <Send size={16} /></>}
+                  </button>
+                </div>
 
                 {status === 'error' && <p className="text-red-500 text-xs text-center">Hubo un error. Por favor, intentá de nuevo.</p>}
               </form>

@@ -9,7 +9,7 @@ async function fillAndSubmit() {
   const user = userEvent.setup();
   await user.type(screen.getByPlaceholderText('Ej: María García'), 'María');
   await user.type(screen.getByPlaceholderText('maria@ejemplo.com'), 'maria@ejemplo.com');
-  await user.click(screen.getByRole('button', { name: /Enviar Información/i }));
+  await user.click(screen.getByRole('button', { name: /Suscribirme/i }));
 }
 
 describe('ContactForm', () => {
