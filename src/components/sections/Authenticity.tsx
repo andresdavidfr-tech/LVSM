@@ -1,5 +1,5 @@
 import { ShieldCheck, ChevronRight } from 'lucide-react';
-import { SmartImage } from '../ui/SmartImage';
+import authenticityVideo from '../../assets/authenticity-video.mp4';
 
 const steps = [
   { title: 'Inspección Manual', desc: 'Revisamos costuras, herrajes, códigos de fecha y materiales.' },
@@ -15,11 +15,14 @@ export function Authenticity() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1">
             <div className="relative">
-              <div className="aspect-square rounded-full overflow-hidden border-[20px] border-white shadow-2xl">
-                <SmartImage
-                  src="https://images.unsplash.com/photo-1591348122449-02525d70379b?auto=format&fit=crop&q=80&w=1000"
-                  alt="Autenticación manual de carteras de lujo"
-                  wrapperClassName="w-full h-full"
+              <div className="aspect-square rounded-full overflow-hidden border-[20px] border-white shadow-2xl bg-brand-ink/5">
+                <video
+                  src={authenticityVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label="Proceso de autenticación de carteras de lujo LVSM"
                   className="w-full h-full object-cover"
                 />
               </div>
