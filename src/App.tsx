@@ -4,6 +4,7 @@ import { Layout } from './components/layout/Layout';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { Skeleton } from './components/ui/Skeleton';
+import { AdminGate } from './components/AdminGate';
 
 // El panel de administración no debe viajar en el bundle del comprador.
 const AdminDashboard = lazy(() =>
@@ -13,9 +14,11 @@ const AdminDashboard = lazy(() =>
 function AdminRoute() {
   const navigate = useNavigate();
   return (
-    <Suspense fallback={<div className="p-12"><Skeleton className="h-screen" /></div>}>
-      <AdminDashboard onLogout={() => navigate('/')} />
-    </Suspense>
+    <AdminGate>
+      <Suspense fallback={<div className="p-12"><Skeleton className="h-screen" /></div>}>
+        <AdminDashboard onLogout={() => navigate('/')} />
+      </Suspense>
+    </AdminGate>
   );
 }
 

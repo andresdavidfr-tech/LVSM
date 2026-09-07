@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, Search, MessageCircle } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ArrowRight, Instagram, Search, MessageCircle } from 'lucide-react';
 import { fetchProducts, CONDITIONS, type Product } from '../../data/products';
 import { ProductCard } from '../product/ProductCard';
 import { Skeleton } from '../ui/Skeleton';
@@ -132,14 +133,22 @@ export function CatalogGrid() {
         )}
 
         <div className="mt-16 text-center">
-          <a
-            href="https://instagram.com/lv_sanmiguel"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold border-b border-brand-ink pb-2 hover:text-brand-gold hover:border-brand-gold transition-all"
-          >
-            Ver colección completa en Instagram <ArrowRight size={14} />
-          </a>
+          <div className="relative inline-block">
+            <motion.span
+              aria-hidden
+              className="absolute inset-0 rounded-full bg-[#C13584] pointer-events-none"
+              animate={{ opacity: [0.45, 0, 0.45], scale: [1, 1.12, 1] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <a
+              href="https://instagram.com/lv_sanmiguel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2.5 bg-gradient-to-r from-brand-accent via-[#C13584] to-[#F77737] text-white px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-semibold shadow-lg hover:shadow-xl hover:brightness-110 transition-all"
+            >
+              <Instagram size={16} /> Ver colección completa en Instagram <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
