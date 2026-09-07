@@ -50,7 +50,12 @@ export function resolveImage(image: { src: string; storageKey?: string }): strin
  * true cuando la imagen mostrada NO es la foto real del artículo (todavía no
  * se subió a S3), sino el placeholder de fallback. Se usa para avisar al
  * usuario que la foto es referencial y no corresponde a la pieza física.
+ *
+ * Una imagen marcada explícitamente como `isReal` (foto verificada del
+ * artículo, cargada como asset local) nunca cuenta como placeholder, aunque
+ * no tenga storageKey ni S3 esté configurado.
  */
-export function isPlaceholderImage(image: { src: string; storageKey?: string }): boolean {
+export function isPlaceholderImage(image: { src: string; storageKey?: string; isReal?: boolean }): boolean {
+  if (image.isReal) return false;
   return !(image.storageKey && isStorageConfigured());
 }

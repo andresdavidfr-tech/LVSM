@@ -11,9 +11,9 @@ describe('CatalogGrid', () => {
   it('lista todos los productos al cargar', async () => {
     renderWithProviders(<CatalogGrid />);
     expect(await screen.findByText('Neverfull MM Monogram')).toBeInTheDocument();
-    expect(screen.getByText('GG Marmont Small Shoulder Bag')).toBeInTheDocument();
-    expect(screen.getByText('Classic Flap Bag')).toBeInTheDocument();
-    expect(screen.getByText('Speedy 30 Damier Ebène')).toBeInTheDocument();
+    expect(screen.getByText('Soho Disco Crossbody')).toBeInTheDocument();
+    expect(screen.getByText('Hourglass Croc-Embossed Chain Bag')).toBeInTheDocument();
+    expect(screen.getByText('Neverfull MM Damier Ebène')).toBeInTheDocument();
   });
 
   it('filtra por marca', async () => {
@@ -23,9 +23,9 @@ describe('CatalogGrid', () => {
 
     await user.click(screen.getByRole('button', { name: 'Gucci' }));
 
-    expect(screen.getByText('GG Marmont Small Shoulder Bag')).toBeInTheDocument();
+    expect(screen.getByText('Soho Disco Crossbody')).toBeInTheDocument();
     expect(screen.queryByText('Neverfull MM Monogram')).not.toBeInTheDocument();
-    expect(screen.queryByText('Classic Flap Bag')).not.toBeInTheDocument();
+    expect(screen.queryByText('Hourglass Croc-Embossed Chain Bag')).not.toBeInTheDocument();
   });
 
   it('filtra por búsqueda de texto', async () => {
@@ -33,10 +33,10 @@ describe('CatalogGrid', () => {
     renderWithProviders(<CatalogGrid />);
     await screen.findByText('Neverfull MM Monogram');
 
-    await user.type(screen.getByPlaceholderText('Buscar...'), 'speedy');
+    await user.type(screen.getByPlaceholderText('Buscar...'), 'totally');
 
-    expect(screen.getByText('Speedy 30 Damier Ebène')).toBeInTheDocument();
-    expect(screen.queryByText('GG Marmont Small Shoulder Bag')).not.toBeInTheDocument();
+    expect(screen.getByText('Totally MM Monogram')).toBeInTheDocument();
+    expect(screen.queryByText('Soho Disco Crossbody')).not.toBeInTheDocument();
   });
 
   it('muestra el estado vacío cuando no hay coincidencias', async () => {
