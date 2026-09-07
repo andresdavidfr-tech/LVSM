@@ -3,7 +3,9 @@ import { SmartImage } from '../ui/SmartImage';
 
 const steps = [
   { title: 'Inspección Manual', desc: 'Revisamos costuras, herrajes, códigos de fecha y materiales.' },
-  { title: 'Tecnología de Punta', desc: 'Utilizamos sistemas de verificación digital para confirmar la autenticidad.' },
+  { title: 'Experiencia de 15+ Años', desc: 'Cada pieza pasa por ojos entrenados durante más de 15 años en el mercado de lujo pre-owned.' },
+  { title: 'Referencias Cruzadas', desc: 'Consultamos con profesionales especializados de las marcas ante cualquier duda.' },
+  { title: 'Investigación de Origen', desc: 'Rastreamos la procedencia de cada pieza antes de aceptarla en consignación.' },
 ];
 
 export function Authenticity() {
@@ -31,7 +33,7 @@ export function Authenticity() {
             <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Confianza Total</span>
             <h2 className="text-5xl font-serif mb-8">Autenticidad Garantizada</h2>
             <p className="text-lg text-brand-ink/70 mb-8 font-light leading-relaxed">
-              Sabemos que la mayor preocupación al comprar lujo pre-owned es la originalidad. En LVSM, cada pieza pasa por un riguroso proceso de verificación manual y tecnológica.
+              Sabemos que la mayor preocupación al comprar lujo pre-owned es la originalidad. En LVSM, cada pieza pasa por un riguroso proceso de verificación basado en experiencia real, no en promesas de tecnología.
             </p>
 
             <ul className="space-y-6">
