@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { SmartImage } from '../ui/SmartImage';
+import founderPhoto from '../../assets/founder-florencia.jpeg';
 
 export function AboutUs() {
   return (
@@ -36,8 +37,8 @@ export function AboutUs() {
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
             <div className="aspect-[4/5] rounded-[60px] overflow-hidden shadow-2xl relative z-10">
               <SmartImage
-                src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&q=80&w=1000"
-                alt="Curaduría de lujo vintage de LVSM"
+                src={founderPhoto}
+                alt="Florencia, fundadora de LVSM"
                 wrapperClassName="w-full h-full"
                 className="w-full h-full object-cover"
               />
