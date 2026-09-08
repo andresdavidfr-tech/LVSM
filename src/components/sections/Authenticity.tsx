@@ -4,7 +4,7 @@ import authenticityVideo from '../../assets/authenticity-video.mp4';
 const steps = [
   { title: 'Inspección Manual', desc: 'Revisamos costuras, herrajes, códigos de fecha y materiales.' },
   { title: 'Experiencia de 15+ Años', desc: 'Cada pieza pasa por ojos entrenados durante más de 15 años en el mercado de lujo pre-owned.' },
-  { title: 'Referencias Cruzadas', desc: 'Consultamos con profesionales especializados de las marcas ante cualquier duda.' },
+  { title: 'Validación con Expertos', desc: 'Consultamos con especialistas de cada marca ante cualquier duda sobre una pieza.' },
   { title: 'Investigación de Origen', desc: 'Rastreamos la procedencia de cada pieza antes de aceptarla en consignación.' },
 ];
 

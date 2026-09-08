@@ -42,14 +42,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-brand-ink/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-brand-ink/5 flex justify-center items-center">
           <p className="text-xs uppercase tracking-widest opacity-40">
             © {new Date().getFullYear()} LVSM. Todos los derechos reservados.
           </p>
-          <div className="flex gap-8 text-xs uppercase tracking-widest opacity-40 items-center">
-            <a href="#" className="hover:opacity-100">Privacidad</a>
-            <a href="#" className="hover:opacity-100">Términos</a>
-          </div>
         </div>
       </div>
     </footer>
