@@ -32,6 +32,8 @@
     "vite": "^6.2.0"
   },
   "devDependencies": {
+    "@csstools/postcss-color-mix-function": "^4.0.11",
+    "@csstools/postcss-oklab-function": "^5.0.11",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -43,6 +45,7 @@
     "@vitest/coverage-v8": "^4.1.8",
     "autoprefixer": "^10.4.21",
     "jsdom": "^29.1.1",
+    "postcss": "^8.5.28",
     "supertest": "^7.2.2",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
