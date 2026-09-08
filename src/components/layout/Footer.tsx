@@ -10,7 +10,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Logo variant="collective" className="mb-6" />
             <p className="text-brand-ink/60 max-w-sm mb-8 font-light">
-              Un colectivo selecto dedicado a la curaduría y el intercambio de piezas de lujo con historia. Autenticidad y exclusividad garantizada.
+              Un colectivo selecto dedicado al intercambio de piezas de lujo con historia. Autenticidad y exclusividad garantizada.
             </p>
             <div className="flex gap-4">
               <a href="https://instagram.com/lv_sanmiguel" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-brand-ink/10 flex items-center justify-center hover:bg-brand-ink hover:text-brand-paper transition-all">
