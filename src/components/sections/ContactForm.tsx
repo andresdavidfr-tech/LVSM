@@ -41,7 +41,7 @@ export function ContactForm() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold mb-4 block">The Collective</span>
-            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Unite a nuestro Select Club</h2>
+            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Unite a nuestro <span className="text-brand-gold">Select Club</span></h2>
             <p className="text-lg text-white/80 mb-8 font-light leading-relaxed">
               Dejanos tus datos para recibir acceso prioritario a nuestra curaduría, ventas privadas y eventos exclusivos de LVSM.
             </p>

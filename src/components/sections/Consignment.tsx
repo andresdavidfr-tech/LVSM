@@ -24,8 +24,8 @@ export function Consignment() {
             {steps.map((step) => (
               <div key={step.title} className="p-6 border border-brand-paper/10 rounded-2xl hover:border-brand-gold transition-colors">
                 <div className="text-brand-gold mb-4">{step.icon}</div>
-                <h4 className="font-semibold text-sm uppercase tracking-widest mb-2">{step.title}</h4>
-                <p className="text-xs text-brand-paper/50">{step.desc}</p>
+                <h4 className="font-semibold text-[1.125rem] uppercase tracking-widest mb-2">{step.title}</h4>
+                <p className="text-[0.975rem] text-brand-paper/50">{step.desc}</p>
               </div>
             ))}
           </div>

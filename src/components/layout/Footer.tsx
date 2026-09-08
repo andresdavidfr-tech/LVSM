@@ -1,11 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import { Instagram, MessageCircle, Lock } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 import { Logo } from '../Logo';
 import { wa } from '../../lib/whatsapp';
 
 export function Footer() {
-  const navigate = useNavigate();
-
   return (
     <footer className="bg-brand-paper pt-24 pb-12 border-t border-brand-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +36,6 @@ export function Footer() {
             <h4 className="text-xs uppercase tracking-widest font-bold mb-6">Contacto</h4>
             <ul className="space-y-4 text-sm text-brand-ink/60 font-light">
               <li>Buenos Aires, Argentina</li>
-              <li>Showroom con cita previa</li>
               <li>WhatsApp: +54 9 11 3404 1112</li>
               <li>@lv_sanmiguel</li>
             </ul>
@@ -53,9 +49,6 @@ export function Footer() {
           <div className="flex gap-8 text-xs uppercase tracking-widest opacity-40 items-center">
             <a href="#" className="hover:opacity-100">Privacidad</a>
             <a href="#" className="hover:opacity-100">Términos</a>
-            <button onClick={() => navigate('/admin')} className="hover:opacity-100 flex items-center gap-1">
-              <Lock size={12} /> Admin
-            </button>
           </div>
         </div>
       </div>

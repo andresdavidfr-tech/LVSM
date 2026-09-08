@@ -17,19 +17,23 @@ export function AboutUs() {
               <p>
                 Lo que comenzó como una búsqueda personal de piezas únicas se transformó rápidamente en una comunidad de clientes fieles que valoran la autenticidad, el estado impecable y el trato personalizado.
               </p>
-              <p className="italic font-serif text-brand-accent">
+              <p className="italic font-serif text-brand-accent text-[1.275rem]">
                 &ldquo;Nuestra misión es democratizar el acceso al lujo, promoviendo un consumo consciente y responsable sin sacrificar la exclusividad.&rdquo;
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-8">
+            <div className="mt-12 grid grid-cols-3 gap-6">
               <div>
                 <h4 className="text-3xl font-serif text-brand-ink mb-2">2021</h4>
                 <p className="text-xs uppercase tracking-widest opacity-50">Año de Fundación</p>
               </div>
               <div>
-                <h4 className="text-3xl font-serif text-brand-ink mb-2">11k+</h4>
+                <h4 className="text-3xl font-serif text-brand-ink mb-2">14k+</h4>
                 <p className="text-xs uppercase tracking-widest opacity-50">Miembros del Club</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-serif text-brand-ink mb-2">600+</h4>
+                <p className="text-xs uppercase tracking-widest opacity-50">Piezas Publicadas</p>
               </div>
             </div>
           </motion.div>
