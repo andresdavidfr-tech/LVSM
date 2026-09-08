@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { motion } from 'motion/react';
-import { Star, Heart, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { Star, Heart, Percent, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { GuaranteeStrip } from '../trust/Trust';
 import { track } from '../../lib/analytics';
 
@@ -41,7 +41,7 @@ export function ContactForm() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold mb-4 block">The Collective</span>
-            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Unite a nuestro <span className="text-brand-gold">Select Club</span></h2>
+            <h2 className="text-4xl sm:text-5xl font-serif mb-8">Unite a nuestro <span className="text-amber-300">Select Club</span></h2>
             <p className="text-lg text-white/80 mb-8 font-light leading-relaxed">
               Dejanos tus datos para recibir acceso prioritario a nuestra curaduría, ventas privadas y eventos exclusivos de LVSM.
             </p>
@@ -63,6 +63,15 @@ export function ContactForm() {
                 <div>
                   <h4 className="font-semibold text-sm uppercase tracking-widest mb-1">Ventas Privadas</h4>
                   <p className="text-sm text-white/70">Invitaciones exclusivas a showrooms y preventas con precios especiales.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-accent flex-shrink-0">
+                  <Percent size={20} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm uppercase tracking-widest mb-1">Descuentos Exclusivos</h4>
+                  <p className="text-sm text-white/70">Promociones exclusivas para miembros y liquidaciones de fin de temporada.</p>
                 </div>
               </div>
             </div>
