@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { SmartImage } from '../ui/SmartImage';
 import founderPhoto from '../../assets/founder-florencia.jpeg';
+import streetStylePhoto from '../../assets/about-street-style.jpeg';
 
 export function AboutUs() {
   return (
@@ -48,6 +49,14 @@ export function AboutUs() {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-brand-gold/10 rounded-full -z-0 blur-3xl" />
+            <div className="absolute -bottom-10 -right-8 w-40 h-52 rounded-3xl overflow-hidden shadow-xl border-4 border-white z-20 hidden sm:block">
+              <SmartImage
+                src={streetStylePhoto}
+                alt="Ambientación de estilo LVSM"
+                wrapperClassName="w-full h-full"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="absolute -top-10 -left-10 p-6 bg-brand-paper rounded-2xl shadow-xl z-20 max-w-[200px]">
               <p className="text-xs font-serif italic">&ldquo;Cada cartera tiene una historia que merece ser continuada.&rdquo;</p>
               <p className="text-xs uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
