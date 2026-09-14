@@ -1,4 +1,4 @@
-import { ShieldCheck, RotateCcw, Truck, Lock, Star, BadgeCheck } from 'lucide-react';
+import { ShieldCheck, Truck, Lock, Star, BadgeCheck } from 'lucide-react';
 import type { Review } from '../../data/reviews';
 
 // Insignia de autenticidad por pieza.
@@ -12,13 +12,12 @@ export const AuthenticityBadge = ({ verified }: { verified: boolean }) =>
 // Tira de garantías para mitigar la ansiedad del comprador cerca del CTA.
 const guarantees = [
   { icon: ShieldCheck, label: 'Autenticidad garantizada' },
-  { icon: RotateCcw, label: 'Devolución 48 h' },
   { icon: Truck, label: 'Envío asegurado' },
   { icon: Lock, label: 'Pago seguro' },
 ];
 
 export const GuaranteeStrip = ({ className = '', dark = false }: { className?: string; dark?: boolean }) => (
-  <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 ${className}`}>
+  <div className={`grid grid-cols-1 sm:grid-cols-3 gap-3 ${className}`}>
     {guarantees.map(({ icon: Icon, label }) => (
       <div key={label} className={`flex items-center gap-2 text-xs ${dark ? 'text-white/80' : 'text-brand-ink/70'}`}>
         <Icon size={16} className="text-brand-gold flex-shrink-0" />
