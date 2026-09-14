@@ -10,10 +10,13 @@ no de la mía.
 1. Entrá a https://forms.google.com con la cuenta de Google que quieras usar
    para LVSM.
 2. Creá un formulario nuevo con estos campos (para que se parezca al que
-   tenía el sitio antes):
+   tenía el sitio antes, más el cumpleaños):
    - **Nombre completo** — Respuesta corta, obligatorio
    - **Email** — Respuesta corta (tipo "Email" en validación), obligatorio
    - **Teléfono** — Respuesta corta, opcional
+   - **Fecha de cumpleaños** — tipo Fecha (sin el año si no querés pedirlo;
+     Google Forms permite desactivar el año en las opciones del campo),
+     opcional. Sirve para mandar un saludo o beneficio ese día.
    - **Interés principal** — Opción múltiple: "Quiero Comprar" / "Quiero
      Vender" / "Ambos"
    - **Mensaje o marca de interés** — Párrafo, opcional
