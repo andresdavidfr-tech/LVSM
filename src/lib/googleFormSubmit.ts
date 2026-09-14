@@ -4,8 +4,11 @@
 // solo recibe el POST y lo guarda en la Sheet conectada — el usuario nunca
 // ve la interfaz de Google.
 //
-// Cómo conseguir estos valores: ver docs/SELECT_CLUB_FORM_SETUP.md
-// ("Link prellenado" en el menú de Google Forms).
+// Hardcodeado a propósito (no env vars): estos valores no son secretos —
+// son los mismos que cualquiera puede ver abriendo el formulario público de
+// Google— así que no hace falta tocar nada en Vercel para que esto funcione,
+// alcanza con el deploy automático que ya dispara cada git push.
+// Para cambiar de formulario en el futuro, ver docs/SELECT_CLUB_FORM_SETUP.md.
 
 export interface GoogleFormConfig {
   action: string;
@@ -14,44 +17,28 @@ export interface GoogleFormConfig {
   entryPhone: string;
   entryInterest: string;
   entryMessage: string;
-  // Cumpleaños: según cómo Google exponga el campo Fecha en el link
-  // prellenado, puede ser UN solo parámetro (entryBirthday) o DOS
-  // (entryBirthdayMonth + entryBirthdayDay). Configurá el que corresponda
-  // al tuyo — ver la guía.
   entryBirthday?: string;
   entryBirthdayMonth?: string;
   entryBirthdayDay?: string;
 }
 
-function env(key: string): string | undefined {
-  const value = import.meta.env[key] as string | undefined;
-  return value && value.length > 0 ? value : undefined;
-}
+const GOOGLE_FORM_CONFIG: GoogleFormConfig = {
+  action: 'https://docs.google.com/forms/d/e/1FAIpQLSfjgd8io2NHa8byVgrlCkmyboZL-UNCnU-Ba_0-WyNTNcs03Q/formResponse',
+  entryName: 'entry.1498126086',
+  entryEmail: 'entry.1383104060',
+  entryPhone: 'entry.1041084826',
+  entryInterest: 'entry.908880382',
+  entryMessage: 'entry.537245645',
+  entryBirthday: 'entry.1181411326',
+};
 
-/** Arma la config desde las variables de entorno. null si falta algo esencial. */
+/** Devuelve la config del formulario. null si falta algo esencial (no debería pasar, está hardcodeada). */
 export function getGoogleFormConfig(): GoogleFormConfig | null {
-  const action = env('VITE_GOOGLE_FORM_ACTION');
-  const entryName = env('VITE_GOOGLE_FORM_ENTRY_NAME');
-  const entryEmail = env('VITE_GOOGLE_FORM_ENTRY_EMAIL');
-  const entryPhone = env('VITE_GOOGLE_FORM_ENTRY_PHONE');
-  const entryInterest = env('VITE_GOOGLE_FORM_ENTRY_INTEREST');
-  const entryMessage = env('VITE_GOOGLE_FORM_ENTRY_MESSAGE');
-
+  const { action, entryName, entryEmail, entryPhone, entryInterest, entryMessage } = GOOGLE_FORM_CONFIG;
   if (!action || !entryName || !entryEmail || !entryPhone || !entryInterest || !entryMessage) {
     return null;
   }
-
-  return {
-    action,
-    entryName,
-    entryEmail,
-    entryPhone,
-    entryInterest,
-    entryMessage,
-    entryBirthday: env('VITE_GOOGLE_FORM_ENTRY_BIRTHDAY'),
-    entryBirthdayMonth: env('VITE_GOOGLE_FORM_ENTRY_BIRTHDAY_MONTH'),
-    entryBirthdayDay: env('VITE_GOOGLE_FORM_ENTRY_BIRTHDAY_DAY'),
-  };
+  return GOOGLE_FORM_CONFIG;
 }
 
 export interface LeadFormData {

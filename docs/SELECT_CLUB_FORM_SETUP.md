@@ -75,15 +75,22 @@ https://docs.google.com/forms/d/e/1FAIpQLS.../formResponse
 ```
 Eso va en `VITE_GOOGLE_FORM_ACTION`.
 
-## 5. Cargar todo en Vercel
+## 5. Ya está — no hace falta tocar Vercel
 
-Settings → Environment Variables → cargá las variables de la sección
-"Formulario Select Club" de `.env.example`, con los valores que sacaste en
-los pasos 3 y 4. Volvé a desplegar después.
+Los valores de tu formulario ya quedaron **escritos directo en el código**
+(`src/lib/googleFormSubmit.ts`), no como variables de entorno — no son
+información sensible (son los mismos datos que ve cualquiera que abra tu
+formulario público), así que no hace falta cargar nada a mano en Vercel.
+Cada `git push` a `main` ya dispara un deploy automático con los valores
+actualizados.
 
-Mientras falte cualquiera de las variables obligatorias (todas menos el
-cumpleaños), esa sección del sitio muestra un aviso de "pendiente de
-configurar" en vez de un formulario roto.
+### Si en el futuro creás un formulario nuevo (o cambiás algún campo)
+
+Repetí los pasos 1 a 4 de arriba para conseguir la nueva URL de acción y los
+nuevos `entry.NNNNNN`, y pasámelos — actualizo
+`src/lib/googleFormSubmit.ts` y hago el push. También lo podés editar vos
+directamente si preferís: es el objeto `GOOGLE_FORM_CONFIG` al principio del
+archivo.
 
 ## Cómo probarlo
 
