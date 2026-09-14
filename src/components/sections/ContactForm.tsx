@@ -1,39 +1,15 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { motion } from 'motion/react';
-import { Star, Heart, Percent, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { Star, Heart, Percent, MailWarning } from 'lucide-react';
 import { GuaranteeStrip } from '../trust/Trust';
 import { track } from '../../lib/analytics';
 
-const EMPTY = { name: '', email: '', phone: '', interest: 'Comprar', message: '' };
+// Formulario embebido: en vez de un form propio + backend (que en Vercel no
+// tiene dónde persistir de forma confiable), se embebe un Google Form ya
+// conectado a una Google Sheet — las respuestas quedan ahí solas, sin
+// mantener ningún servidor. Ver docs/SELECT_CLUB_FORM_SETUP.md para crear el
+// formulario y conseguir esta URL.
 
 export function ContactForm() {
-  const [formData, setFormData] = useState(EMPTY);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    track('lead_submit_attempt', { interest: formData.interest });
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        setStatus('success');
-        setFormData(EMPTY);
-        track('lead_submit', { interest: formData.interest });
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-  };
-
-  const field = (key: keyof typeof EMPTY) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setFormData({ ...formData, [key]: e.target.value });
+  const googleFormEmbedUrl = import.meta.env.VITE_GOOGLE_FORM_EMBED_URL as string | undefined;
 
   return (
     <section id="contact" className="py-24 bg-brand-accent text-white overflow-hidden">
@@ -79,73 +55,27 @@ export function ContactForm() {
             <GuaranteeStrip dark />
           </div>
 
-          <div className="bg-white text-brand-ink p-8 md:p-12 rounded-[40px] shadow-2xl">
-            {status === 'success' ? (
-              <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
-                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={40} />
-                </div>
-                <h3 className="text-2xl font-serif mb-4">¡Gracias por sumarte!</h3>
-                <p className="text-brand-ink/60 mb-8">Ya sos parte de nuestra lista exclusiva. Pronto recibirás novedades.</p>
-                <button onClick={() => setStatus('idle')} className="text-xs uppercase tracking-widest font-bold border-b border-brand-ink pb-1">
-                  Volver al formulario
-                </button>
-              </motion.div>
+          <div className="bg-white text-brand-ink rounded-[40px] shadow-2xl overflow-hidden">
+            {googleFormEmbedUrl ? (
+              <iframe
+                src={googleFormEmbedUrl}
+                title="Unite a nuestro Select Club"
+                onLoad={() => track('lead_form_view')}
+                className="w-full h-[720px] border-0"
+                loading="lazy"
+              >
+                Cargando formulario…
+              </iframe>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Nombre Completo</label>
-                    <input required type="text" value={formData.name} onChange={field('name')} placeholder="Ej: María García"
-                      className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Email</label>
-                    <input required type="email" value={formData.email} onChange={field('email')} placeholder="maria@ejemplo.com"
-                      className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
-                  </div>
+              <div className="p-8 md:p-12 text-center py-20">
+                <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MailWarning size={28} />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Teléfono (Opcional)</label>
-                    <input type="tel" value={formData.phone} onChange={field('phone')} placeholder="+54 9 11 ..."
-                      className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold opacity-50">Interés Principal</label>
-                    <select value={formData.interest} onChange={field('interest')}
-                      className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light appearance-none">
-                      <option value="Comprar">Quiero Comprar</option>
-                      <option value="Vender">Quiero Vender</option>
-                      <option value="Ambos">Ambos</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-bold opacity-50">Mensaje o Marca de Interés</label>
-                  <textarea rows={3} value={formData.message} onChange={field('message')} placeholder="¿Buscás algún modelo en particular?"
-                    className="w-full bg-transparent border-b border-brand-ink/20 py-3 focus:border-brand-gold outline-none transition-colors font-light resize-none" />
-                </div>
-
-                <div className="relative">
-                  {status !== 'loading' && (
-                    <motion.span
-                      aria-hidden
-                      className="absolute inset-0 rounded-full bg-brand-accent pointer-events-none"
-                      animate={{ opacity: [0.5, 0, 0.5], scale: [1, 1.08, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                  )}
-                  <button disabled={status === 'loading'} type="submit"
-                    className="relative w-full bg-brand-ink text-brand-paper py-4 rounded-full text-xs uppercase tracking-widest hover:bg-brand-accent transition-all flex items-center justify-center gap-3 disabled:opacity-50">
-                    {status === 'loading' ? <Loader2 className="animate-spin" size={18} /> : <>Suscribirme <Send size={16} /></>}
-                  </button>
-                </div>
-
-                {status === 'error' && <p className="text-red-500 text-xs text-center">Hubo un error. Por favor, intentá de nuevo.</p>}
-              </form>
+                <h3 className="text-xl font-serif mb-3">Formulario pendiente de configurar</h3>
+                <p className="text-brand-ink/60 text-sm max-w-xs mx-auto">
+                  Falta cargar <code className="bg-brand-paper px-1.5 py-0.5 rounded text-xs">VITE_GOOGLE_FORM_EMBED_URL</code> — ver docs/SELECT_CLUB_FORM_SETUP.md.
+                </p>
+              </div>
             )}
           </div>
         </div>
