@@ -14,11 +14,21 @@ export function useScrollToHash() {
 
   useEffect(() => {
     if (!hash) return;
-    // requestAnimationFrame: esperamos a que el navegador termine de pintar
-    // el layout de este render antes de medir la posición del elemento.
-    const raf = requestAnimationFrame(() => {
+
+    const scrollToTarget = () => {
       document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-    return () => cancelAnimationFrame(raf);
+    };
+
+    // Primer intento apenas se pinta el layout de este render...
+    const raf = requestAnimationFrame(scrollToTarget);
+    // ...y un reintento más tarde, por si imágenes de secciones más arriba
+    // (Hero, catálogo, etc.) todavía no habían terminado de cargar y
+    // corrieron la altura de la página, dejando el primer scroll corto.
+    const timeout = setTimeout(scrollToTarget, 700);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timeout);
+    };
   }, [hash]);
 }
