@@ -87,7 +87,7 @@ export function ContactForm() {
             <GuaranteeStrip dark />
           </div>
 
-          <div className="bg-white text-brand-ink p-8 md:p-12 rounded-[40px] shadow-2xl">
+          <div id="club-form" className="bg-white text-brand-ink p-8 md:p-12 rounded-[40px] shadow-2xl scroll-mt-24">
             {!config ? (
               <div className="text-center py-20">
                 <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
