@@ -6,9 +6,11 @@ import { Footer } from './Footer';
 import { WishlistModal } from '../WishlistModal';
 import { wa } from '../../lib/whatsapp';
 import { track } from '../../lib/analytics';
+import { useScrollToHash } from '../../hooks/useScrollToHash';
 
 export function Layout() {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+  useScrollToHash();
 
   return (
     <div className="selection:bg-brand-accent selection:text-white">
