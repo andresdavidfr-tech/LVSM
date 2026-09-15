@@ -56,7 +56,7 @@ export function CatalogGrid() {
   );
 
   return (
-    <section id="catalog" className="py-24 bg-white">
+    <section id="catalog" className="py-24 bg-white scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Nuestra Colección</span>

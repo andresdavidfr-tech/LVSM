@@ -10,7 +10,7 @@ const steps = [
 
 export function Authenticity() {
   return (
-    <section id="authenticity" className="py-24 bg-brand-paper">
+    <section id="authenticity" className="py-24 bg-brand-paper scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1">

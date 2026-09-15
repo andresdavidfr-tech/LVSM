@@ -11,7 +11,7 @@ const steps = [
 
 export function Consignment() {
   return (
-    <section id="consignment" className="py-24 bg-brand-ink text-brand-paper overflow-hidden relative">
+    <section id="consignment" className="py-24 bg-brand-ink text-brand-paper overflow-hidden relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <span className="text-xs uppercase tracking-[0.3em] text-brand-accent font-semibold mb-4 block">Vende con Nosotros</span>

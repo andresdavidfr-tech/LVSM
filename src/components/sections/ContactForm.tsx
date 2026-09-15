@@ -44,7 +44,7 @@ export function ContactForm() {
   const fields = config ? buildGoogleFormFields(formData, config) : [];
 
   return (
-    <section id="contact" className="py-24 bg-brand-accent text-white overflow-hidden">
+    <section id="contact" className="py-24 bg-brand-accent text-white overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
