@@ -57,9 +57,8 @@ export function AboutUs() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -top-10 -left-10 p-6 bg-brand-paper rounded-2xl shadow-xl z-20 max-w-[200px]">
+            <div className="absolute -top-10 left-[calc(-2.5rem+0.5cm)] p-6 bg-brand-paper rounded-2xl shadow-xl z-20 max-w-[200px]">
               <p className="text-xs font-serif italic">&ldquo;Cada cartera tiene una historia que merece ser continuada.&rdquo;</p>
-              <p className="text-xs uppercase tracking-widest mt-2 opacity-50">— Florencia, Fundadora</p>
             </div>
           </motion.div>
         </div>
