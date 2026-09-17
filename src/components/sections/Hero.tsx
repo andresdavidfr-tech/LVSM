@@ -15,7 +15,7 @@ export function Hero() {
             al alcance.
           </h2>
           <p className="text-lg text-brand-ink/70 max-w-md font-light leading-relaxed">
-            Carteras de familias, originales, de las mejores marcas del mundo en inmejorable estado. Sin pagar una fortuna, tenés lo mejor.
+            Carteras originales de las mejores casas de moda del mundo, con historia y en inmejorable estado. Invertí en piezas únicas sin pagar de más.
           </p>
         </motion.div>
 
