@@ -1,5 +1,6 @@
 import { ShieldCheck, ChevronRight } from 'lucide-react';
-import authenticityVideo from '../../assets/authenticity-video.mp4';
+import { SmartImage } from '../ui/SmartImage';
+import authenticityPhoto from '../../assets/authenticity-review.jpeg';
 
 const steps = [
   { title: 'Inspección Manual', desc: 'Revisamos costuras, herrajes, códigos de fecha y materiales.' },
@@ -16,13 +17,10 @@ export function Authenticity() {
           <div className="order-2 md:order-1">
             <div className="relative">
               <div className="aspect-square rounded-full overflow-hidden border-[20px] border-white shadow-2xl bg-brand-ink/5">
-                <video
-                  src={authenticityVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  aria-label="Proceso de autenticación de carteras de lujo LVSM"
+                <SmartImage
+                  src={authenticityPhoto}
+                  alt="Revisión manual de una Louis Vuitton Neverfull Damier Ebène antes de publicarla"
+                  wrapperClassName="w-full h-full"
                   className="w-full h-full object-cover"
                 />
               </div>
