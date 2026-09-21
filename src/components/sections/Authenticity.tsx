@@ -16,7 +16,7 @@ export function Authenticity() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1">
             <div className="relative">
-              <div className="aspect-square rounded-full overflow-hidden border-[20px] border-white shadow-2xl bg-brand-ink/5">
+              <div className="aspect-square rounded-full overflow-hidden shadow-2xl bg-brand-ink/5">
                 <SmartImage
                   src={authenticityPhoto}
                   alt="Revisión manual de una Louis Vuitton Neverfull Damier Ebène antes de publicarla"
