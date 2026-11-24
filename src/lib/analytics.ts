@@ -7,7 +7,6 @@ type Props = Record<string, unknown>;
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    va?: (event: string, payload?: unknown) => void;
   }
 }
 
@@ -15,7 +14,9 @@ export function track(event: string, props: Props = {}): void {
   if (typeof window === 'undefined') return;
   try {
     window.gtag?.('event', event, props);
-    window.va?.('event', { name: event, data: props });
+    // Vercel Analytics window.va is typed by @vercel/analytics package
+    const va = (window as any).va;
+    va?.('event', { name: event, data: props });
   } catch {
     /* nunca romper la UI por analítica */
   }
